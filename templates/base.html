@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BunkWise — {{ page }}</title>
+  <meta name="description" content="BunkWise college attendance planner and analytics dashboard.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="/">Bunk<span>Wise</span></a>
+  <button class="menu" id="menuBtn">☰</button>
+  <nav id="nav">
+    <a class="{{ 'active' if page == 'Dashboard' else '' }}" href="/">Dashboard</a>
+    <a class="{{ 'active' if page == 'Calculator' else '' }}" href="/calculator">Calculator</a>
+    <a class="{{ 'active' if page == 'Subjects' else '' }}" href="/subjects">Subjects</a>
+    <a class="{{ 'active' if page == 'Planner' else '' }}" href="/planner">Planner</a>
+    <a class="{{ 'active' if page == 'Analytics' else '' }}" href="/analytics">Analytics</a>
+    <a class="{{ 'active' if page == 'Report' else '' }}" href="/report">Report</a>
+    <a class="{{ 'active' if page == 'About' else '' }}" href="/about">About</a>
+  </nav>
+</header>
+
+<main class="container">
+  {% block content %}{% endblock %}
+</main>
+
+<footer>
+  <b>BunkWise</b> · Know your attendance. Plan smarter.
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

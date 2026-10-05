@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head">
+  <p class="eyebrow">CALCULATOR</p><h1>Attendance calculator</h1>
+  <p>Enter your current numbers and BunkWise will tell you what you can safely miss — or how many classes you need to recover.</p>
+</section>
+
+<section class="two-col">
+  <div class="panel">
+    <h2>Current attendance</h2>
+    <label>Total classes conducted</label><input id="total" type="number" min="1" placeholder="40">
+    <label>Classes attended</label><input id="attended" type="number" min="0" placeholder="34">
+    <label>Required attendance %</label><input id="required" type="number" min="1" max="100" value="75">
+    <button class="btn primary full" id="calculateBtn">Calculate</button>
+    <p class="error" id="calcError"></p>
+  </div>
+  <div class="result panel" id="calcResult">
+    <span class="pill" id="calcStatus">WAITING</span>
+    <div class="result-number" id="calcBig">—</div>
+    <p id="calcLabel">Enter your numbers</p>
+    <div class="progress large"><div id="calcBar"></div></div>
+    <p id="calcBarText" class="muted"></p>
+    <div id="calcRows"></div>
+    <div class="callout" id="calcMessage">Your result will appear here.</div>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>What if I bunk?</h2>
+  <div class="inline-form">
+    <input id="whatif" type="number" min="0" placeholder="Number of classes">
+    <button class="btn secondary" id="whatifBtn">Check</button>
+  </div>
+  <p id="whatifResult" class="callout"></p>
+</section>
+
+<section class="info-grid">
+  <div class="info-card"><b>Attendance %</b><p>Attended ÷ Total × 100</p></div>
+  <div class="info-card"><b>Safe bunk limit</b><p>Maximum additional classes you can miss while staying at or above your target.</p></div>
+  <div class="info-card"><b>Recovery</b><p>If you are below target, the calculator estimates classes you need to attend continuously.</p></div>
+</section>
+{% endblock %}
+{% block scripts %}<script>window.initCalculator();</script>{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head">
+  <p class="eyebrow">SUBJECT TRACKER</p><h1>My subjects</h1>
+  <p>Track every subject independently. Your data is saved in this browser.</p>
+</section>
+
+<section class="panel">
+  <h2>Add subject</h2>
+  <div class="form-grid">
+    <div><label>Subject name</label><input id="subName" placeholder="Operating Systems"></div>
+    <div><label>Total classes</label><input id="subTotal" type="number" min="1"></div>
+    <div><label>Attended</label><input id="subAttended" type="number" min="0"></div>
+    <div><label>Required %</label><input id="subRequired" type="number" min="1" max="100" value="75"></div>
+  </div>
+  <p id="subError" class="error"></p>
+  <button class="btn primary" id="addSubject">Add subject</button>
+  <button class="btn danger" id="clearSubjects">Clear all</button>
+</section>
+
+<section class="panel">
+  <div class="panel-title"><h2>Attendance table</h2><span id="subjectCount" class="muted">0 subjects</span></div>
+  <div class="table-wrap">
+    <table><thead><tr><th>Subject</th><th>Attendance</th><th>Required</th><th>Safe bunks</th><th>Status</th><th></th></tr></thead>
+    <tbody id="subjectTable"></tbody></table>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}<script>window.initSubjects();</script>{% endblock %}

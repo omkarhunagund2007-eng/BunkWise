@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div>
+    <p class="eyebrow">ATTENDANCE COMMAND CENTER</p>
+    <h1>Know your attendance.<br><span>Plan every class.</span></h1>
+    <p class="lead">One place to calculate attendance, track subjects, find safe bunk limits and understand where you are actually at risk.</p>
+    <div class="actions">
+      <a class="btn primary" href="/calculator">Calculate attendance →</a>
+      <a class="btn secondary" href="/subjects">Manage subjects</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="mini-label">TODAY'S SNAPSHOT</div>
+    <div class="hero-number" id="heroAvg">—</div>
+    <p>Overall attendance</p>
+    <div class="progress"><div id="heroBar"></div></div>
+    <small id="heroStatus">Add subjects to begin</small>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><div><p class="eyebrow">OVERVIEW</p><h2>Your attendance at a glance</h2></div></div>
+  <div class="stats-grid">
+    <div class="stat-card"><span class="stat-icon">📚</span><small>Subjects</small><strong id="dashSubjects">0</strong></div>
+    <div class="stat-card"><span class="stat-icon">✓</span><small>Average attendance</small><strong id="dashAverage">—</strong></div>
+    <div class="stat-card"><span class="stat-icon">🛡</span><small>Safe bunks</small><strong id="dashBunks">0</strong></div>
+    <div class="stat-card"><span class="stat-icon">⚠</span><small>Subjects at risk</small><strong id="dashRisk">0</strong></div>
+  </div>
+</section>
+
+<section class="dashboard-grid">
+  <div class="panel">
+    <div class="panel-title"><h3>Subject health</h3><a href="/subjects">View all</a></div>
+    <div id="dashSubjectList" class="subject-list"><div class="empty">No subjects yet. Add your subjects first.</div></div>
+  </div>
+  <div class="panel">
+    <h3>Quick actions</h3>
+    <div class="quick-grid">
+      <a href="/calculator">🧮<b>Calculator</b><small>Find safe bunks</small></a>
+      <a href="/planner">📅<b>Planner</b><small>Plan future attendance</small></a>
+      <a href="/analytics">📊<b>Analytics</b><small>See weak subjects</small></a>
+      <a href="/report">📄<b>Report</b><small>Print your report</small></a>
+    </div>
+  </div>
+</section>
+{% endblock %}

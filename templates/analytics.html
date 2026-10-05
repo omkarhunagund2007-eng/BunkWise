@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head">
+  <p class="eyebrow">ANALYTICS</p><h1>Attendance analytics</h1>
+  <p>Stop looking only at the average. Find the subjects that can hurt you.</p>
+</section>
+
+<section class="stats-grid">
+  <div class="stat-card"><small>Average</small><strong id="anAvg">—</strong></div>
+  <div class="stat-card"><small>Best subject</small><strong id="anBest">—</strong></div>
+  <div class="stat-card"><small>Weakest subject</small><strong id="anWorst">—</strong></div>
+  <div class="stat-card"><small>Total safe bunks</small><strong id="anBunks">0</strong></div>
+</section>
+
+<section class="panel">
+  <div class="panel-title"><h2>Subject comparison</h2><span class="muted">Current attendance</span></div>
+  <div id="analyticsBars"></div>
+</section>
+
+<section class="two-col">
+  <div class="panel"><h2>Risk analysis</h2><div id="riskList"></div></div>
+  <div class="panel"><h2>What the numbers mean</h2>
+    <ul class="clean">
+      <li><b>Safe:</b> current attendance is above target with a buffer.</li>
+      <li><b>Careful:</b> only a small number of bunks remain.</li>
+      <li><b>Danger:</b> current attendance is already below target.</li>
+    </ul>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}<script>window.initAnalytics();</script>{% endblock %}

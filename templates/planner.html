@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-head">
+  <p class="eyebrow">FUTURE PLANNER</p><h1>Plan your attendance</h1>
+  <p>Test future classes before you make an attendance decision.</p>
+</section>
+
+<section class="two-col">
+  <div class="panel">
+    <h2>Scenario</h2>
+    <label>Current total classes</label><input id="pTotal" type="number" min="1">
+    <label>Current attended classes</label><input id="pAttended" type="number" min="0">
+    <label>Required %</label><input id="pRequired" type="number" value="75" min="1" max="100">
+    <label>Upcoming classes</label><input id="pFuture" type="number" min="0" value="10">
+    <label>Upcoming classes you plan to attend</label><input id="pAttendFuture" type="number" min="0" value="10">
+    <button class="btn primary full" id="planBtn">Simulate future</button>
+    <p id="planError" class="error"></p>
+  </div>
+  <div class="panel result">
+    <span class="pill" id="planStatus">SCENARIO</span>
+    <div class="result-number" id="planBig">—</div>
+    <p>Projected attendance</p>
+    <div class="progress large"><div id="planBar"></div></div>
+    <div id="planRows"></div>
+    <div id="planMessage" class="callout">Enter a scenario to see what happens.</div>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>Decision rule</h2>
+  <p class="muted">Don't treat the safe bunk number as permission to skip classes. It is a mathematical buffer. College rules, attendance rounding and subject-specific policies may differ.</p>
+</section>
+{% endblock %}
+{% block scripts %}<script>window.initPlanner();</script>{% endblock %}
